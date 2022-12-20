@@ -29,16 +29,16 @@ export class RoutinesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.routinesService.findOne(+id);
+    return this.routinesService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateRoutineDto: UpdateRoutineDto) {
-    return this.routinesService.update(+id, updateRoutineDto);
+    return this.routinesService.update(id, updateRoutineDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.routinesService.remove(+id);
+    return this.routinesService.remove(id);
   }
 }

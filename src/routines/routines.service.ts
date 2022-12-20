@@ -1,26 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import { CreateRoutineDto } from './dto/create-routine.dto';
 import { UpdateRoutineDto } from './dto/update-routine.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Routine, RoutineDocument } from './schemas/routine.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class RoutinesService {
+  constructor(
+    @InjectModel(Routine.name) private routineModel: Model<RoutineDocument>,
+  ) {}
   create(createRoutineDto: CreateRoutineDto) {
-    return 'This action adds a new routine';
+    const createdRoutine = new this.routineModel(createRoutineDto);
+    return createdRoutine.save();
   }
 
   findAll() {
-    return `This action returns all routines`;
+    return this.routineModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} routine`;
+  findOne(id: string) {
+    return this.routineModel.findById(id).exec();
   }
 
-  update(id: number, updateRoutineDto: UpdateRoutineDto) {
-    return `This action updates a #${id} routine`;
+  update(id: string, updateRoutineDto: UpdateRoutineDto) {
+    return this.routineModel.findByIdAndUpdate(id, updateRoutineDto).exec();
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} routine`;
+  remove(id: string) {
+    return this.routineModel.findByIdAndDelete(id).exec();
   }
 }
