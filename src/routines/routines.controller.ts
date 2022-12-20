@@ -10,7 +10,9 @@ import {
 import { RoutinesService } from './routines.service';
 import { CreateRoutineDto } from './dto/create-routine.dto';
 import { UpdateRoutineDto } from './dto/update-routine.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Routines')
 @Controller('routines')
 export class RoutinesController {
   constructor(private readonly routinesService: RoutinesService) {}
