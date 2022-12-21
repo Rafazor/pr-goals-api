@@ -8,8 +8,8 @@ import { UsersModule } from './users/users.module';
   imports: [
     MongooseModule.forRoot('mongodb://localhost:27017/pr-local'),
     RoutinesModule,
-    AuthModule,
     UsersModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

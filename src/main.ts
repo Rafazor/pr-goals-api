@@ -10,10 +10,11 @@ async function bootstrap() {
     .setDescription('API description')
     .setVersion('1.0')
     .addTag('PR')
+    .addBearerAuth(undefined, 'defaultBearerAuth')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('_swagger', app, document);
 
-  await app.listen(3000);
+  await app.listen(9000);
 }
 bootstrap();
