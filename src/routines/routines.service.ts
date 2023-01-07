@@ -19,6 +19,10 @@ export class RoutinesService {
     return this.routineModel.find().exec();
   }
 
+  findAllByUserId(userId: string) {
+    return this.routineModel.find({ userId }).exec();
+  }
+
   findOne(id: string) {
     return this.routineModel.findById(id).exec();
   }

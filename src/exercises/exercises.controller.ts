@@ -27,6 +27,11 @@ export class ExercisesController {
     return this.exercisesService.findAll();
   }
 
+  @Get('routine/:routineId')
+  findAllByRoutineId(@Param('routineId') routineId: string) {
+    return this.exercisesService.findAllByRoutineId(routineId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.exercisesService.findOne(id);

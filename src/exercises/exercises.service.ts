@@ -18,6 +18,10 @@ export class ExercisesService {
     return this.exerciseModel.find().exec();
   }
 
+  findAllByRoutineId(routineId: string) {
+    return this.exerciseModel.find({ routineId }).exec();
+  }
+
   findOne(id: string) {
     return this.exerciseModel.findById(id).exec();
   }
