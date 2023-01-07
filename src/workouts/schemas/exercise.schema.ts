@@ -7,8 +7,6 @@ export type WorkoutDocument = HydratedDocument<Workout>;
 
 @Schema({ timestamps: true })
 export class Workout {
-  @Prop({ required: true })
-  name: string;
   @Prop()
   description: string;
   @Prop({
@@ -20,6 +18,7 @@ export class Workout {
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Exercise',
+    required: true,
   })
   exerciseId: Exercise;
 }
