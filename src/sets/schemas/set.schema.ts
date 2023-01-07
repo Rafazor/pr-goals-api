@@ -3,12 +3,20 @@ import mongoose, { HydratedDocument } from 'mongoose';
 import { User } from '../../users/schemas/user.schema';
 import { Exercise } from '../../exercises/schemas/exercise.schema';
 
-export type WorkoutDocument = HydratedDocument<Workout>;
+export type SetDocument = HydratedDocument<Set>;
 
 @Schema({ timestamps: true })
-export class Workout {
+export class Set {
   @Prop()
   description: string;
+  @Prop()
+  repetitions: number;
+  @Prop()
+  weight: number;
+  @Prop({
+    required: true,
+  })
+  date: Date;
   @Prop({
     required: true,
     type: mongoose.Schema.Types.ObjectId,
@@ -23,4 +31,4 @@ export class Workout {
   exerciseId: Exercise;
 }
 
-export const WorkoutSchema = SchemaFactory.createForClass(Workout);
+export const SetSchema = SchemaFactory.createForClass(Set);
