@@ -3,6 +3,7 @@ import { RoutinesModule } from './routines/routines.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { ExercisesModule } from './exercises/exercises.module';
+import { WorkoutsModule } from './workouts/workouts.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { ExercisesModule } from './exercises/exercises.module';
     RoutinesModule,
     UsersModule,
     ExercisesModule,
+    WorkoutsModule,
   ],
   controllers: [],
   providers: [],
