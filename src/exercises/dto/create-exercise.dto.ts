@@ -7,6 +7,4 @@ export class CreateExerciseDto {
   description: string;
   @ApiProperty()
   userId: string;
-  @ApiProperty()
-  routineId?: string;
 }

@@ -7,4 +7,6 @@ export class CreateRoutineDto {
   description: string;
   @ApiProperty()
   userId: string;
+  @ApiProperty()
+  exercises: string[];
 }
